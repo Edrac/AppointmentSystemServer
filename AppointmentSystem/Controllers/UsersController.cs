@@ -11,6 +11,12 @@ namespace AppointmentSystem.Controllers
     {
         private AppSystemDbContext _dbContext;
 
+        public UsersController(AppSystemDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
+
+
         //// GET: api/<UsersController>
         //[HttpGet]
         //public IEnumerable<string> Get()
