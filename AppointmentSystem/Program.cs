@@ -6,7 +6,6 @@ var builder = WebApplication.CreateBuilder(args);
 string connectionString = builder.Configuration.GetConnectionString("AppointmentsSystemDb");
 // Add services to the container.
 
-builder.Services.AddCors();
 builder.Services.AddControllers();
 builder.Services.AddDbContext<AppSystemDbContext>(options =>
 {
@@ -16,8 +15,16 @@ builder.Services.AddDbContext<AppSystemDbContext>(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var app = builder.Build();
+//services cors
+builder.Services.AddCors();
 
+var app = builder.Build();
+app.UseCors(builder =>
+{
+    builder.AllowAnyOrigin()
+           .AllowAnyMethod()
+           .AllowAnyHeader();
+});
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
