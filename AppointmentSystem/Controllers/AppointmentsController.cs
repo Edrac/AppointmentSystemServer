@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AppointmentSystem.Data;
+using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,6 +9,8 @@ namespace AppointmentSystem.Controllers
     [ApiController]
     public class AppointmentsController : ControllerBase
     {
+        private AppSystemDbContext _dbContext;
+
         // GET: api/<AppointmentsController>
         [HttpGet]
         public IEnumerable<string> Get()
