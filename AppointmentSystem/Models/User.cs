@@ -6,7 +6,7 @@ namespace AppointmentSystem.Models
     {
         public User()
         {
-            Id = "0000-aaaa-0000";
+            Id = "";
             Appointments = new HashSet<Appointment>();
         }
 
