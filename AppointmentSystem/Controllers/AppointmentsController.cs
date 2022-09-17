@@ -18,10 +18,10 @@ namespace AppointmentSystem.Controllers
 
 
         // GET: api/<AppointmentsController>
-        [HttpGet]
-        public IActionResult Get()
+        [HttpGet("{id}")]
+        public IActionResult Get(string id)
         {
-            var list = _dbContext.Appointments?.ToList();
+            var list = _dbContext.Appointments.Where(a => a.User.Id == id);
             return Ok(list);
         }
 
