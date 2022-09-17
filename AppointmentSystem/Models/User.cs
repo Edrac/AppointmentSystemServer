@@ -4,6 +4,12 @@ namespace AppointmentSystem.Models
 {
     public class User
     {
+        public User()
+        {
+            Id = "0000-aaaa-0000";
+            Appointments = new HashSet<Appointment>();
+        }
+
         [Required]
         public string Id { get; set; }
         [Required]
