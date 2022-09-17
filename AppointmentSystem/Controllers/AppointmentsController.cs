@@ -25,6 +25,14 @@ namespace AppointmentSystem.Controllers
             return Ok(list);
         }
 
+        // GET: api/<AppointmentsController>
+        [HttpGet("{startDate}/{endDate}")]
+        public IActionResult Get(DateTime startDate, DateTime endDate)
+        {
+            var list = _dbContext.Appointments.Where(a => a.StartTime > startDate && a.EndTime < endDate);
+            return Ok(list);
+        }
+
         //// GET api/<AppointmentsController>/5
         //[HttpGet("{id}")]
         //public string Get(int id)
